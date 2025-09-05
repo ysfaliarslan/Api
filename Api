@@ -1,0 +1,16 @@
+from fastapi import FastAPI
+import random
+
+app = FastAPI()
+
+# Rastgele şakalar/hikayeler listesi
+jokes = [
+    "İki programcı bara girer...",
+    "Python neden mutlu? Çünkü indentleri düzgün!",
+    "Debugging bir sanattır, bazen suçluyu bulmak için kendini suçlarsın.",
+    "Bugünün hikayesi: Kediler uçamaz, ama hayal kurabilir."
+]
+
+@app.get("/random_joke")
+def random_joke():
+    return {"text": random.choice(jokes)}
